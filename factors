@@ -23,8 +23,13 @@ def main():
             for line in file:
                 n = int(line.strip())
                 factors_list = factorize(n)
-                factors_str = f"{n}={factors_list[0][0]}*{factors_list[0][1]}"
-                print(factors_str)
+                
+                # التأكد من أن هناك عاملين على الأقل
+                if factors_list:
+                    factors_str = f"{n}={factors_list[0][0]}*{factors_list[0][1]}"
+                    print(factors_str)
+                else:
+                    print(f"{n} is a prime number.")
 
     except FileNotFoundError:
         print(f"Error: File '{input_file}' not found.")
@@ -32,3 +37,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
