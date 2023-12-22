@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+def factorize(n):
+    factors = []
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:
+            factors.append((i, n // i))
+            break
+    return factors
+
+def main(input_file):
+    with open(input_file, 'r') as file:
+        for line in file:
+            n = int(line.strip())
+            factors_list = factorize(n)
+            factors_str = f"{n}={factors_list[0][0]}*{factors_list[0][1]}"
+            print(factors_str)
+
+if __name__ == "__main__":
+    input_file = "tests/test00"
+    main(input_file)
